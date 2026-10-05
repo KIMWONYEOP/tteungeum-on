@@ -1,0 +1,5 @@
+project_id = "tteungeum-on"
+[db]
+major_version = 17
+[db.seed]
+enabled = false

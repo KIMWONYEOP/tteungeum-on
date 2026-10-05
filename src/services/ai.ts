@@ -14,3 +14,6 @@ export function operatingAssistant(state:DemoState,storeId:string,prompt:string)
  if(/오늘|매출|브리핑/.test(prompt))return{text:'오늘 매장 운영을 살펴봤어요.',details:[`오늘 매출 ${money(today.total)}`,`주문 ${today.orders}건 · 객단가 ${money(today.average)}`,`추천발주 ${recommendations.length}개 · 재고 확인 ${inventory.filter(i=>i.status!=='정상').length}개`],href:'/store/reorder',linkLabel:'추천발주 보기'};
  return{text:'매장 운영에 대해 물어봐 주세요. 매출, 재고, 발주, 정산을 확인할 수 있어요.',details:['예: 오늘 뭐 발주해야 해?','예: 이번달 예상매출 알려줘'],href:'/store/reorder',linkLabel:'추천발주 보기'};
 }
+
+export interface OperationsAiService { analyze(state:DemoState,storeId:string,prompt:string):Promise<AiAnswer> }
+export const operationsAiService:OperationsAiService={async analyze(state,storeId,prompt){return operatingAssistant(state,storeId,prompt);}};

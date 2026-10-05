@@ -29,7 +29,7 @@ function Screen({area,segments}:{area:'hq'|'store';segments:string[]}){
   case 'ai':if(!hq)return <AiScreen/>;break;
   case 'notices':return <NoticesScreen hq={hq}/>;
   case 'support':return <SupportScreen hq={hq}/>;
-  case 'notifications':if(!hq)return <NotificationsScreen/>;break;
+  case 'notifications':return <NotificationsScreen/>;
   case 'more':if(!hq)return <MoreScreen/>;break;
   case 'settings':if(!hq)return <SettingsScreen/>;break;
   case 'help':if(!hq)return <HelpScreen/>;break;
